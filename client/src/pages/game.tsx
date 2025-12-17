@@ -10,7 +10,7 @@ import coinImg from "@assets/coin.png";
 import treeImg from "@assets/tree.png";
 import jumpAudioFile from "@assets/jump.mp3";
 
-import birdImg from "@assets/generated_images/small_blue_flying_bird_sprite.png";
+import birdImg from "@assets/flying_character.png";
 
 // Game Constants
 // Physics: y is height above ground (positive is up)
