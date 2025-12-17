@@ -10,6 +10,8 @@ import coinImg from "@assets/coin.png";
 import treeImg from "@assets/tree.png";
 import jumpAudioFile from "@assets/jump.mp3";
 
+import birdImg from "@assets/generated_images/small_blue_flying_bird_sprite.png";
+
 // Game Constants
 // Physics: y is height above ground (positive is up)
 const GRAVITY = -0.55;
@@ -21,6 +23,8 @@ export default function Game() {
   const [score, setScore] = useState(0);
   const [coins, setCoins] = useState(0);
   const [, setTick] = useState(0); // Force re-render for smooth animation
+  const [showWompMessage, setShowWompMessage] = useState(false);
+  const lastCoinMilestoneRef = useRef(0);
 
   // Refs for game loop state
   const playerRef = useRef({ y: 0, dy: 0, grounded: true });
@@ -60,6 +64,15 @@ export default function Game() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleJump]);
+
+  // Womp Womp Message Logic
+  useEffect(() => {
+    if (coins > 0 && coins % 50 === 0 && coins !== lastCoinMilestoneRef.current) {
+      lastCoinMilestoneRef.current = coins;
+      setShowWompMessage(true);
+      setTimeout(() => setShowWompMessage(false), 3000);
+    }
+  }, [coins]);
 
   // Game Loop
   const update = useCallback((time: number) => {
@@ -241,6 +254,45 @@ export default function Game() {
           </div>
         </Card>
       </div>
+
+      {/* Womp Womp Popup Message (Location 1) */}
+      <AnimatePresence>
+        {showWompMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: -20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            className="absolute top-24 left-1/2 -translate-x-1/2 z-50 bg-black text-white px-6 py-3 rounded-full border-4 border-yellow-400 shadow-[0px_8px_0px_0px_rgba(0,0,0,0.5)] font-bold text-xl uppercase tracking-wider animate-bounce"
+          >
+            WOMP WOMP CHERRY 🍒
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Flying Bird (Location 2) */}
+      <motion.div
+        className="absolute top-48 z-10 w-16 h-16 opacity-80"
+        initial={{ right: -100 }}
+        animate={{ 
+          right: ["110%", "-10%"],
+          y: [0, -20, 0, 20, 0]
+        }}
+        transition={{ 
+          right: {
+            repeat: Infinity,
+            duration: 15,
+            ease: "linear",
+            repeatDelay: 5
+          },
+          y: {
+            repeat: Infinity,
+            duration: 2,
+            ease: "easeInOut"
+          }
+        }}
+      >
+        <img src={birdImg} alt="Bird" className="w-full h-full object-contain" />
+      </motion.div>
 
       {/* Game Area Container - Lifted Up to run on the floor above the wall */}
       <div className="absolute inset-x-0 bottom-[180px] h-[300px]">
