@@ -242,15 +242,15 @@ export default function Game() {
         </Card>
       </div>
 
-      {/* Game Area Container - Lifted Up as requested */}
-      <div className="absolute inset-x-0 bottom-[80px] h-[300px]">
+      {/* Game Area Container - Lifted Up to run on the floor above the wall */}
+      <div className="absolute inset-x-0 bottom-[180px] h-[300px]">
 
         {/* Floor Line (visual guide) */}
         {/* <div className="absolute bottom-0 w-full h-1 bg-red-500/30 z-50" /> */}
 
-        {/* Player (Shakti) - Made Bigger */}
+        {/* Player (Shakti) - Shifted left */}
         <div
-          className="absolute left-[100px] bottom-0 w-[140px] h-[170px] z-30"
+          className="absolute left-[60px] bottom-0 w-[140px] h-[170px] z-30"
           style={{
             transform: `translateY(${-playerRef.current.y}px)`,
             willChange: 'transform'
@@ -259,8 +259,8 @@ export default function Game() {
           <img src={shaktiImg} alt="Shakti" className="w-full h-full object-contain drop-shadow-lg" />
         </div>
 
-        {/* Monster (Chirag) - Brought forward and Made Bigger */}
-        <div className="absolute left-[50px] bottom-0 w-[180px] h-[200px] z-20 animate-bounce" style={{ animationDuration: '2.5s' }}>
+        {/* Monster (Chirag) - Shifted left */}
+        <div className="absolute left-[10px] bottom-0 w-[180px] h-[200px] z-20 animate-bounce" style={{ animationDuration: '2.5s' }}>
           <img src={monsterImg} alt="Chirag" className="w-full h-full object-contain drop-shadow-xl opacity-90" />
         </div>
 
