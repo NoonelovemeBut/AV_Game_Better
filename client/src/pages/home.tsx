@@ -1,9 +1,9 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import shaktiImg from "@assets/generated_images/cartoon_indian_schoolboy_running.png";
-import monsterImg from "@assets/generated_images/cartoon_monster_chasing.png";
-import bgImg from "@assets/generated_images/school_campus_background.png";
+import shaktiImg from "@assets/shakti.png";
+import monsterImg from "@assets/monster.png";
+import bgImg from "@assets/bg.png";
 
 export default function Home() {
   return (

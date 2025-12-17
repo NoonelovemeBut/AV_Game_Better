@@ -3,12 +3,12 @@ import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import shaktiImg from "@assets/generated_images/cartoon_indian_schoolboy_running.png";
-import monsterImg from "@assets/generated_images/cartoon_monster_chasing.png";
-import bgImg from "@assets/generated_images/school_campus_background.png";
-import coinImg from "@assets/generated_images/gold_coin_sprite.png";
-import treeImg from "@assets/generated_images/tree_obstacle_sprite.png";
-// import jumpAudioFile from "@assets/Yeeeaaaee_1765912135361.mp3";
+import shaktiImg from "@assets/shakti.png";
+import monsterImg from "@assets/monster.png";
+import bgImg from "@assets/bg.png";
+import coinImg from "@assets/coin.png";
+import treeImg from "@assets/tree.png";
+import jumpAudioFile from "@assets/jump.mp3";
 
 // Game Constants
 // Physics: y is height above ground (positive is up)
@@ -35,7 +35,7 @@ export default function Game() {
   const jumpSoundRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // jumpSoundRef.current = new Audio(jumpAudioFile);
+    jumpSoundRef.current = new Audio(jumpAudioFile);
   }, []);
 
   const handleJump = useCallback(() => {
