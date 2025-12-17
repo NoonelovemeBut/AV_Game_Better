@@ -44,8 +44,19 @@ export default function Home() {
         <div className="relative h-64 w-full max-w-2xl mx-auto mb-8 flex items-end justify-center gap-8 md:gap-20">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
+            animate={{ 
+              x: [0, 20, 0],
+              opacity: 1 
+            }}
+            transition={{ 
+              x: {
+                repeat: Infinity,
+                duration: 0.8,
+                repeatType: "reverse",
+                ease: "easeInOut"
+              },
+              opacity: { duration: 0.5 }
+            }}
             className="relative w-40 h-40 md:w-56 md:h-56"
           >
             <div className="absolute -top-24 -right-12 bg-white p-4 rounded-2xl rounded-bl-none shadow-xl border-2 border-slate-100 max-w-[200px] z-20 animate-in fade-in slide-in-from-bottom-4 duration-1000">
@@ -53,21 +64,48 @@ export default function Home() {
                 "Hey I am Shakti, will I be able to escape from this evil cheery or not? Let's see..."
               </p>
             </div>
-            <img src={shaktiImg} alt="Shakti" className="w-full h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300" />
+            <motion.img 
+              src={shaktiImg} 
+              alt="Shakti" 
+              className="w-full h-full object-contain drop-shadow-2xl"
+              animate={{ rotate: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 0.4 }}
+            />
           </motion.div>
+
+          {/* VS Effect */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
+             <motion.div
+               animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+               transition={{ repeat: Infinity, duration: 0.5 }}
+               className="w-32 h-32 bg-red-500/20 rounded-full blur-3xl"
+             />
+          </div>
 
           <motion.div
             initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            animate={{ 
+              x: [0, -20, 0],
+              opacity: 1 
+            }}
+            transition={{ 
+              x: {
+                repeat: Infinity,
+                duration: 0.8,
+                repeatType: "reverse",
+                ease: "easeInOut",
+                delay: 0.1 // Offset for impact feel
+              },
+              opacity: { duration: 0.5, delay: 0.2 }
+            }}
             className="relative w-48 h-48 md:w-64 md:h-64 opacity-90"
           >
-             <div className="absolute -top-20 -left-12 bg-black p-4 rounded-2xl rounded-br-none shadow-xl border-2 border-red-500 max-w-[200px] z-20 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-backwards">
+             <div className="absolute -top-20 -right-24 bg-black p-4 rounded-2xl rounded-bl-none shadow-xl border-2 border-red-500 max-w-[200px] z-20 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-backwards">
               <p className="text-sm font-bold text-white leading-tight font-comic">
                 "You can't escape from my facecard 😈"
               </p>
             </div>
-            <img src={monsterImg} alt="Chirag" className="w-full h-full object-contain transform scale-x-[-1] drop-shadow-2xl hover:scale-110 transition-transform duration-300" />
+            <img src={monsterImg} alt="Chirag" className="w-full h-full object-contain transform scale-x-[-1] drop-shadow-2xl" />
           </motion.div>
         </div>
 
