@@ -389,7 +389,7 @@ export default function Game() {
               className="bg-white rounded-3xl p-8 max-w-md w-full text-center border-4 border-primary shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
               <h2 className="text-4xl font-black text-destructive mb-2 font-sans">OH NO!</h2>
-              <p className="text-xl text-slate-600 mb-6 font-medium">Chirag caught you!</p>
+              <p className="text-xl text-slate-600 mb-6 font-medium">Aare Yaarw chirag ne tumhare cherrys leliye :(</p>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="bg-orange-50 p-4 rounded-xl border-2 border-orange-100">
