@@ -139,10 +139,10 @@ export default function Game() {
     coinsRef.current = coinsRef.current.filter(c => c.x > -100);
 
     // Collision Detection
-    // Player position fixed at x=100
+    // Player position fixed at x=60 (visually updated)
     // Adjusted hitbox for larger player sprite
     const playerHitbox = {
-      x: 100 + 30,
+      x: 60 + 30,
       y: player.y,
       w: 40,
       h: 80
