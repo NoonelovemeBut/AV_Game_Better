@@ -24,7 +24,7 @@ export default function Home() {
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="bg-primary text-white px-6 py-2 rounded-full font-black tracking-widest text-sm shadow-lg mb-8 border-2 border-white"
+          className="bg-primary text-white px-6 py-2 rounded-full font-black tracking-widest text-sm shadow-[0px_4px_10px_rgba(249,115,22,0.5)] mb-8 border-2 border-white/50 backdrop-blur-sm animate-pulse"
         >
           OFFICIAL GAME
         </motion.div>
@@ -34,7 +34,7 @@ export default function Home() {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", bounce: 0.5 }}
-          className="text-6xl md:text-8xl font-black text-secondary drop-shadow-[4px_4px_0px_rgba(255,165,0,0.5)] mb-6 leading-tight"
+          className="text-6xl md:text-8xl font-black text-secondary drop-shadow-[4px_4px_0px_rgba(255,165,0,0.5)] mb-6 leading-tight select-none hover:tracking-wide transition-all duration-300 cursor-default"
         >
           AMRITA<br />
           <span className="text-primary">WINNERS</span>
@@ -48,21 +48,26 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="relative w-40 h-40 md:w-56 md:h-56"
           >
-            <div className="absolute -top-16 -right-12 bg-white p-4 rounded-2xl rounded-bl-none shadow-xl border-2 border-slate-100 max-w-[200px] z-20">
-              <p className="text-sm font-bold text-slate-700 leading-tight">
+            <div className="absolute -top-24 -right-12 bg-white p-4 rounded-2xl rounded-bl-none shadow-xl border-2 border-slate-100 max-w-[200px] z-20 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+              <p className="text-sm font-bold text-slate-700 leading-tight font-comic">
                 "Hey I am Shakti, will I be able to escape from this evil cheery or not? Let's see..."
               </p>
             </div>
-            <img src={shaktiImg} alt="Shakti" className="w-full h-full object-contain" />
+            <img src={shaktiImg} alt="Shakti" className="w-full h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300" />
           </motion.div>
 
           <motion.div
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="w-48 h-48 md:w-64 md:h-64 opacity-90"
+            className="relative w-48 h-48 md:w-64 md:h-64 opacity-90"
           >
-            <img src={monsterImg} alt="Chirag" className="w-full h-full object-contain transform scale-x-[-1]" />
+             <div className="absolute -top-20 -left-12 bg-black p-4 rounded-2xl rounded-br-none shadow-xl border-2 border-red-500 max-w-[200px] z-20 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-backwards">
+              <p className="text-sm font-bold text-white leading-tight font-comic">
+                "You can't escape from my facecard 😈"
+              </p>
+            </div>
+            <img src={monsterImg} alt="Chirag" className="w-full h-full object-contain transform scale-x-[-1] drop-shadow-2xl hover:scale-110 transition-transform duration-300" />
           </motion.div>
         </div>
 
